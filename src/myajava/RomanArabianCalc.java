@@ -1,5 +1,6 @@
 package myajava;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 public class RomanArabianCalc {
     public static Scanner scanner = new Scanner(System.in);
@@ -94,8 +95,12 @@ class TestCalc extends RomanArabianCalc {
             case '/':
                 try {
                     result = num1 / num2;
-                } catch (ArrayIndexOutOfBoundsException e){
-                    break;}
+                } catch (ArithmeticException | InputMismatchException e) {
+                    System.out.println("Exception : " + e);
+                    break;
+                }
+                break;
+
             default:
                 throw new IllegalArgumentException();
         }
